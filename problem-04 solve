@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function to check if the given string is a valid identifier
+bool isIdentifier(const string& input) {
+    // Empty string is not a valid identifier
+    if (input.empty()) 
+        return false;
+
+    // First character must be alphabet or underscore
+    if (!(isalpha(input[0]) || input[0] == '_'))
+        return false;
+
+    // Remaining characters must be alphanumeric or underscore
+    for (size_t i = 1; i < input.length(); i++) {
+        if (!(isalnum(input[i]) || input[i] == '_'))
+            return false;
+    }
+
+    return true;
+}
+
+int main() {
+    string input;
+
+    cout << "Enter an identifier: ";
+    cin >> input;
+
+    if (isIdentifier(input))
+        cout << input << " is a VALID Identifier." << endl;
+    else
+        cout << input << " is NOT a Valid Identifier." << endl;
+
+    return 0;
+}
