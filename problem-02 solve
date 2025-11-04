@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void checkOperators(const string& input) 
+{
+    string operators = "+-*/%=";
+    int count = 1;
+
+    for (char ch : input) {
+        if (operators.find(ch) != string::npos) 
+        { 
+            cout << "operator" << count << ": " << ch << endl;
+            count++;
+        }
+    }
+
+    if (count == 1) {
+        cout << "No operators found in the input." << endl;
+    }
+}
+
+int main() {
+    string input;
+
+    cout << "Enter an expression: ";
+    cin >> input;
+
+    checkOperators(input);
+
+    return 0;
+}
